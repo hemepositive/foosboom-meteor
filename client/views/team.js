@@ -28,15 +28,3 @@ Template.team.events({
     	Teams.update(this._id, {$set: {name: newData}});
     }, //submit
 });
-
-/*
-Teams.insert({name: teamName}, function(error, _id){
-      if(error){
-        alert(error);
-        Session.set('isEditingTeam', true);
-        Tracker.afterFlush(function(){
-          tpl.$('input[name=name]').val(teamName);
-          }); //afterFlush
-       } //error
-    }); //insert
-*/
