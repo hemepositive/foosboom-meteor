@@ -53,5 +53,16 @@ Template.games.events({
     Teams.update({_id: team2.id}, {$addToSet: { gameIds: gameId}});
 
     Session.set('isCreatingGame', null);
-  }
+  },
+  'click a.gameover': function(e, template){
+    e.preventDefault();
+    console.log("gameover");
+    console.log(this.completed);
+    value="{{_id}}"
+    Games.update(this._id, {$set: {completed: true}});
+    console.log(this.completed);
+
+    //console.log(this._id, {completed});
+
+  },
 }); //events

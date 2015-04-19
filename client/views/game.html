@@ -3,16 +3,18 @@
   			{{#if completed}}
   			
   			<li>
-		    	{{teams.[0].name}} final score:{{teams.[0].score}}
-		    	vs
-		    	{{teams.[1].name}} final score:{{teams.[1].score}}
-		</li>
-    		{{else}}
-        	<br>
+  		    	{{teams.[0].name}} final score:{{teams.[0].score}}
+  		    	vs
+  		    	{{teams.[1].name}} final score:{{teams.[1].score}}
+		    </li>
+    		
+        {{else}}
+        
+        <br>
   		
       <li>
 	    	{{teams.[0].name}} score:{{teams.[0].score}}
-	    	<a class="editScore" href="#">Edit score</a>
+	    	<a class="editScore" value="{{teams.[0].id}}" href="#">Edit score</a>
 	    	<a class="gameover" href="#">Game Completed</a>
     	</li>
     	<!-- {{log this._id teams}}
@@ -24,7 +26,7 @@
 	    	{{teams.[1].name}} score:{{teams.[1].score}}
 	    	<!-- {{log this._id}} -->
 	    	
-	    	<a class="editScore" href="#">Edit score</a>
+	    	<a class="editScore" value="{{teams.[1].id}}" href="#">Edit score</a>
 	    	<a class="gameover" href="#">Game Completed</a>
     	</li>
     {{/if}}
