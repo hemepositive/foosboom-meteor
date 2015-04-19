@@ -1,9 +1,34 @@
 <template name="game">
-  <li>
-    {{teams.[0].name}}
-    vs
-    {{teams.[1].name}}
-  </li>
+  	
+  			{{#if completed}}
+  			
+  			<li>
+		    	{{teams.[0].name}} final score:{{teams.[0].score}}
+		    	vs
+		    	{{teams.[1].name}} final score:{{teams.[1].score}}
+		</li>
+    		{{else}}
+        	<br>
+  		
+      <li>
+	    	{{teams.[0].name}} score:{{teams.[0].score}}
+	    	<a class="editScore" href="#">Edit score</a>
+	    	<a class="gameover" href="#">Game Completed</a>
+    	</li>
+    	<!-- {{log this._id teams}}
+    	{{log teams.[0].score}}
+    	{{log teams.[1].score}} -->
+
+    	vs
+      <li>
+	    	{{teams.[1].name}} score:{{teams.[1].score}}
+	    	<!-- {{log this._id}} -->
+	    	
+	    	<a class="editScore" href="#">Edit score</a>
+	    	<a class="gameover" href="#">Game Completed</a>
+    	</li>
+    {{/if}}
+
 </template>
 
 <!--

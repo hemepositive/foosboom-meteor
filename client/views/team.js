@@ -26,5 +26,6 @@ Template.team.events({
   		e.preventDefault();
     	var newData = tpl.$('input[name=name]').val();
     	Teams.update(this._id, {$set: {name: newData}});
+      Session.set('editedTeamId', null);
     }, //submit
 });

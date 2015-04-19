@@ -19,9 +19,14 @@
   	{{else}}
     	<a class="create" href="#">Create</a>
 	{{/if}}
+
 	<ul>
     	{{#each games}}
-      		{{> game}}
-		{{/each}}
-  	</ul>
+    
+    		<li>{{> game}}<a class="delete" href="#" >(x)</a></li>
+
+    
+    	{{/each}}
+   	</ul>
+  	
 </template>

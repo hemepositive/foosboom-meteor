@@ -10,7 +10,7 @@ Template.games.helpers({
 	}
 });
 
-Template.teams.events({
+Template.games.events({
   
   'click a.create': function(e, tpl){
   	e.preventDefault();
@@ -20,6 +20,11 @@ Template.teams.events({
   'click a.cancel': function(e, tpl){
   	e.preventDefault();
     Session.set('isCreatingGame', null);
+  },
+
+  'click a.delete': function(e, tpl){
+  	e.preventDefault();
+  	Games.remove(this._id);
   },
 
    'submit form.create-game': function(e, tpl){
