@@ -58,7 +58,6 @@ Template.games.events({
     e.preventDefault();
     console.log("gameover");
     console.log(this.completed);
-    value="{{_id}}"
     Games.update(this._id, {$set: {completed: true}});
     console.log(this.completed);
 

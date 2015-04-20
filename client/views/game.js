@@ -33,9 +33,8 @@ Template.game.events({
 		//var team1Score = this._id.team.score;
 		//var team2Score = this._id.team[1].score;
 		console.log("edit clicked");
-		console.log(this._id.teams);
-		console.log(this.completed);
-		Games.update(this._id, {$inc :{score: +1}});
+		//val teamID = template.$("editScore']").val(),
+		Games.update(teamID, {$inc :{score: +1}});
 
 
 
