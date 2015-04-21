@@ -11,7 +11,18 @@ Template.game.events({
 	},
 	'click a.delete-game': function(e, template){
 		e.preventDefault;
-		Games.remove(this._id);
+		//Games.remove(this._id);
+		var currentGameID = this._id;
+		var teamOneId = this.teams[0].id;
+		var teamTwoId = this.teams[1].id;
+		
+		Games.remove(currentGameID, function(error) {
+			if (! error) {
+				Teams.update(teamOneId, {$pull: {gameIds: currentGameID}});
+				Teams.update(teamTwoId, {$pull: {gameIds: currentGameID}});
+			}
+		});
+		
 	},
 	'click a.score': function(e, template) {
 		e.preventDefault();
