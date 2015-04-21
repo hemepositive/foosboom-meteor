@@ -13,11 +13,22 @@ Template.game.events({
 		e.preventDefault;
 		Games.remove(this._id);
 	},
+	'click a.score': function(e, template) {
+		e.preventDefault();
+		var teamData = $(e.currentTarget).data();
+		var update = {$inc: {}};
+		var selector = "teams." + teamData.index + ".score";
+		console.log(teamData);
+		console.log(update);
+		console.log(teamData.inc);
+		update.$inc[selector] = teamData.inc;
+		Games.update(this._id, update);
+	},
 
 	// FOR THESE THE AUTHOR USES
 	// Games.update({_id: this._id}, ...)
 	// ?benefit as this._id works
-	'click a.incrementOne': function(e, template){
+	/*'click a.incrementOne': function(e, template){
 		e.preventDefault();
 		Games.update(this._id, {$inc : {"teams.0.score": 1}});
 	},
@@ -32,7 +43,7 @@ Template.game.events({
 	'click a.decrementTwo': function(e, template){
 		e.preventDefault();
 		Games.update(this._id, {$inc : {"teams.1.score": -1}});
-	},
+	},*/
 });
 
 /*'click .increment': function(){

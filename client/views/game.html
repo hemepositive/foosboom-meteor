@@ -2,7 +2,6 @@
   	<li>
   			{{#if completed}}
   			
-  			
   		    	{{teams.[0].name}} ({{teams.[0].score}})
   		    	vs
   		    	{{teams.[1].name}} ({{teams.[1].score}})
@@ -11,16 +10,16 @@
         
 	    	  {{teams.[0].name}}
           (
-          <a class="decrementOne" href="#"> - </a>
+          <a class="score" data-inc="-1" data-index="0" href="#"> - </a>
           {{teams.[0].score}}
-          <a class="incrementOne" href="#"> + </a>
+          <a class="score" data-inc="1" data-index="0" href="#"> + </a>
           )
     	   vs
 	    	  {{teams.[1].name}}
           (
-          <a class="decrementTwo" href="#"> - </a>
+          <a class="score" data-inc="-1" data-index="1" href="#"> - </a>
           {{teams.[1].score}}
-          <a class="incrementTwo" href="#"> + </a>
+          <a class="score" data-inc="1" data-index="1" href="#"> + </a>
           )
           <a href="#" class="finish-game">Finish</a>
           <a href="#" class="delete-game">Delete</a>

@@ -1,8 +1,6 @@
 Template.games.helpers({
 	games: function() {
 		return Games.find();
-    //add sorting
-    //return Games.find({}, {$sort: {completed: true}});
 	},
 	teams: function() {
 		return Teams.find();
