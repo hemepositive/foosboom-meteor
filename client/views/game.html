@@ -1,39 +1,29 @@
 <template name="game">
-  	
+  	<li>
   			{{#if completed}}
   			
-  			<li>
-  		    	{{teams.[0].name}} final score:{{teams.[0].score}}
+  			
+  		    	{{teams.[0].name}} ({{teams.[0].score}})
   		    	vs
-  		    	{{teams.[1].name}} final score:{{teams.[1].score}}
-		    </li>
-    		
+  		    	{{teams.[1].name}} ({{teams.[1].score}})
+		    
         {{else}}
         
-        <br>
-  		
-      <li>
-	    	{{teams.[0].name}} score:{{teams.[0].score}}
-	    	<a class="editScore" value="{{teams.[0].id}}" href="#">Edit score</a>
-    	</li>
-    	<!-- {{log this._id teams}}
-    	{{log teams.[0].score}}
-    	{{log teams.[1].score}} -->
-
-    	vs
-      <li>
-	    	{{teams.[1].name}} score:{{teams.[1].score}}
-	    	<!-- {{log this._id}} -->
-	    	
-	    	<a class="editScore" value="{{teams.[1].id}}" href="#">Edit score</a>
-    	</li>
-    {{/if}}
-
+	    	  {{teams.[0].name}}
+          (
+          <a class="decrementOne" href="#"> - </a>
+          {{teams.[0].score}}
+          <a class="incrementOne" href="#"> + </a>
+          )
+    	   vs
+	    	  {{teams.[1].name}}
+          (
+          <a class="decrementTwo" href="#"> - </a>
+          {{teams.[1].score}}
+          <a class="incrementTwo" href="#"> + </a>
+          )
+          <a href="#" class="finish-game">Finish</a>
+          <a href="#" class="delete-game">Delete</a>
+      {{/if}}
+    </li>
 </template>
-
-<!--
-teams: [
-        {name: team1.name, _id: team1._id, score: 0},
-        {name: team2.name, _id: team2._id, score: 0}
-      ]
--->

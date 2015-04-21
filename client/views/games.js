@@ -1,6 +1,8 @@
 Template.games.helpers({
 	games: function() {
 		return Games.find();
+    //add sorting
+    //return Games.find({}, {$sort: {completed: true}});
 	},
 	teams: function() {
 		return Teams.find();
@@ -53,15 +55,5 @@ Template.games.events({
     Teams.update({_id: team2.id}, {$addToSet: { gameIds: gameId}});
 
     Session.set('isCreatingGame', null);
-  },
-  'click a.gameover': function(e, template){
-    e.preventDefault();
-    console.log("gameover");
-    console.log(this.completed);
-    Games.update(this._id, {$set: {completed: true}});
-    console.log(this.completed);
-
-    //console.log(this._id, {completed});
-
   },
 }); //events

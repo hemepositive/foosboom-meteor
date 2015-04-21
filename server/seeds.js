@@ -27,7 +27,7 @@ Meteor.startup(function () {
         {name: team2.name, _id: team2._id, score: 0}
       ]
 	};
-    Games.insert(game);
+    gameId = Games.insert(game);
  
     Teams.update({_id: team1._id}, {$addToSet: { gameIds: gameId}});
     Teams.update({_id: team2._id}, {$addToSet: { gameIds: gameId}});
