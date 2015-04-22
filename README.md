@@ -1,2 +1,3 @@
 A meteor js tutorial from Matthew Platts
-www.webtempest.com
+book available at www.meteor-tutorial.org/
+
