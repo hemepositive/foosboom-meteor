@@ -44,7 +44,8 @@ Template.games.events({
  	var game = {
     	completed: false,
     	createdAt: new Date(),
-    	teams: [team1, team2]
+      ownerId: Meteor.userId(),
+    	teams: [team1, team2],
 	};
 	// insert game
   	var gameId = Games.insert(game);

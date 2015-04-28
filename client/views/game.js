@@ -1,9 +1,3 @@
-Template.game.helpers({
-	game: function() {
-		var currentGame = Games.findOne(this._id);
-	}
-});
-
 Template.game.events({
 	'click a.finish-game': function(e, template){
 		e.preventDefault();

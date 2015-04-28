@@ -5,6 +5,7 @@
 # but you can also edit it by hand.
 
 meteor-platform
-insecure
 msavin:mongol
 ostrio:templatehelpers
+accounts-password
+accounts-ui
