@@ -30,28 +30,21 @@ Template.games.events({
    'submit form.create-game': function(e, tpl){
   	e.preventDefault();
   	// get teams from selections
-  	var team1 = {
-  		id: tpl.$("select[name='teamOne']").val(),
-  		name: tpl.$("select[name='teamOne'] option:selected").text(),
-  		score:0
-  	}
-  	var team2 = {
-  		id: tpl.$("select[name='teamTwo']").val(),
-  		name: tpl.$("select[name='teamTwo'] option:selected").text(),
-  		score:0
-  	}
-  	// create a gome
- 	var game = {
-    	completed: false,
-    	createdAt: new Date(),
-      ownerId: Meteor.userId(),
-    	teams: [team1, team2],
-	};
-	// insert game
-  	var gameId = Games.insert(game);
+  	e.preventDefault();
+    var teamOneId = tpl.$("select[name='teamOne']").val();
+    var teamTwoId = tpl.$("select[name='teamTwo']").val();
 
-  	Teams.update({_id: team1.id}, {$addToSet: { gameIds: gameId}});
-    Teams.update({_id: team2.id}, {$addToSet: { gameIds: gameId}});
+    // using the server methos to create a game
+    Meteor.call('gamesInsert', teamOneId, teamTwoId, function(error, response){
+      if(error){
+        alert(error.reason);
+        Session.set('isCreatingGame', true);
+        Tracker.afterFlush(function(){
+          tpl.$("select[name='teamOne']").val(teamOneId);
+          tpl.$("select[name='teamTwo']").val(teamTwoId);
+        });
+      } 
+  });
 
     Session.set('isCreatingGame', null);
   },
